@@ -4,6 +4,8 @@ from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 from .config import Config
 from .controllers.auth_controller import auth_bp
+from .controllers.guest_controller import guest_bp
+
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -20,6 +22,7 @@ def create_app():
     app.register_blueprint(auth_bp)
     app.register_blueprint(episode_bp)
     app.register_blueprint(appearance_bp)
+    app.register_blueprint(guest_bp)
 
     from .controllers import register_controllers
     register_controllers(app)
