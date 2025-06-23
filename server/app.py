@@ -17,7 +17,9 @@ def create_app():
     migrate.init_app(app, db)
     jwt.init_app(app)
 
-       app.register_blueprint(auth_bp)
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(episode_bp)
+    app.register_blueprint(appearance_bp)
 
     from .controllers import register_controllers
     register_controllers(app)
